@@ -22,9 +22,30 @@ an if statement. If not, we know that they just tried to run the file, but did n
 wanted to be edited. We will need to print a statement saying how to use the program (using 'usage: {the necessary 
 arguments}) and then use the exit command `sys.exit(1)`. 
 
-If that passes, we will need to take the `open()` function and take the 1st argument of `sys.argv` and 
-set that equal to a variable (recommended file or f). We will then use the `.readline()` function and using a 
-for loop, go through each line in the variable for the file, (ie: `for line in f:`). 
+Once that is Successful, we will need to figure out what information we will be looking for. THat will be in the `keep.csv`
+file in the directory. As for now, this will just act more like a text file. We will just add all the column titles that
+we want to be keeping on their own individual lines. This way, in our program, we can open up the file with the `open()`
+function, set it to a variable, then using a forloop, take each line and add it to a list. Finally, calling a `.close()` 
+function to close the file.
+
+We need to create a list to contain all the new data: `newData = []`
+
+We will need then need to use the `open()` function again and take the 1st argument of `sys.argv` as the parameter for 
+`.open()` and 
+set that equal to a variable (recommended: file or f). We will then use the `.readline()` function to get the first line
+of the file and set it to a new variable. With this, we will need to use a forloop looping through the 'keep list' to 
+find the index of each of those columns that we want to keep. We will creat a `keepIndexList` and add these indexes to a
+list that we will use shortly after. 
+
+We will then use a for loop, go through each line in the variable of the file, (ie: `for line in f:`). With each line, 
+we will then look at the index numbers of the numbers in the `keepIndexList` and take that data, and add it to a variable
+called `row` which was initialized first as a list. (aka `row=[]`) Then we just use the `.append()` function using the
+data associated with each index to be the parameter for the function. Eventually, we will have a list of the all the 
+data associated with a row/ item which we then can append to the list called `newData`
+
+
+
+
 
 
 ## Output
@@ -36,3 +57,4 @@ for loop, go through each line in the variable for the file, (ie: `for line in f
 # Ideas for future Development
 * ways to name file
 * ways to include the date range of the report at the top of the file
+* make it so that we can control what order the new information is in
